@@ -15,8 +15,8 @@
 
 (function () {
 
-  //var realBackgroundColor = "#272b30";
-  var realBackgroundColor = "#060606";
+  var realBackgroundColor = "#272b30";
+  //var realBackgroundColor = "#060606";
   var gridStrokeColor1    = "#3a3a3a";
   var mapZoneStrokeColor  = "#dddddd";
   var grays = ["#3a3a3a", "#404040"];
@@ -69,10 +69,6 @@
           alive_labels: ['Yellow', 'Blue']
         },
         {
-          alive: ['#fefe62', '#d35fb7'],
-          alive_labels: ['Yellow', 'Pink']
-        },
-        {
           alive: ['#e66100', '#9963ab'],
           alive_labels: ['Orange', 'Purple']
         },
@@ -83,6 +79,10 @@
         {
           alive: ['#1a85ff', '#d41159'],
           alive_labels: ['Blue', 'Pink']
+        },
+        {
+          alive: ['#fefe62', '#d35fb7'],
+          alive_labels: ['Yellow', 'Pink']
         }
       ],
     },
