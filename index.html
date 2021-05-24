@@ -24,7 +24,7 @@ var mapsApiUrl = 'https://maps.golly456.life';
 
     <!--
         Versions:
-        gollyx-hellmouth-pelican: 21.0.0.dev0
+        gollyx-hellmouth-pelican: 21.0.1
         gollyx-hellmouth-pelican-theme: 21.0.0
     -->
 
@@ -157,61 +157,66 @@ var mapsApiUrl = 'https://maps.golly456.life';
   </div>
 </div>
 
-
-<div class="container" id="container-maps">
-
-  <div id="row-maps" class="row">
-
-    <div class="col-md-3 map-card-container">
-
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Hellmouth Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/hellmouthcup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://hellmouth.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            hellmouth.golly.life
-          </a>
-        </div>
-      </div>
-
+<template id="minilife-template">
+<!-- minilife include template -->
+<div class="row justify-content-lg-center">
+  <div class="col-md-4">
+    <div>
+      <h3 style="color: #eee;">minilife</h3>
     </div>
-    <div class="col-md-3 map-card-container">
-
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Pseudo Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/pseudocup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://pseudo.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            pseudo.golly.life
-          </a>
-        </div>
-      </div>
-
+    <div>
+      <button type="button" id="buttonRun"   class="btn btn-sm btn-success btn-secondary">Run</button>
+      <button type="button" id="buttonStep"  class="btn btn-sm btn-default btn-secondary">Step</button>
+      <button type="button" id="buttonClear" class="btn btn-sm btn-default btn-secondary">Clear</button>
     </div>
-    <div class="col-md-3 map-card-container">
-
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Toroidal Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/toroidalcup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://toroidal.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            toroidal.golly.life
-          </a>
-        </div>
-      </div>
-
+    <div>
+      Generation: <span id="generation"></span>
     </div>
-
+    <div>
+      Live Cells: <span id="livecells"></span>
+    </div>
   </div>
+</div>
+
+<div class="row justify-content-lg-center">
+  <div class="col-md-4">
+    <noscript>You must enable Javascript to play minilife.</noscript>
+    <canvas id="canvas" width="400" height="400">
+  </div>
+</div>
+
+<!-- 
+minilife requires javascript,
+add this to pelican pages:
+
+<script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/json-sans-eval.js"></script>
+<script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/minilife.js"></script>
+--></template>
+
+
+<div class="container">
+
+    <div class="row text-center landing-header justify-content-lg-center">
+      <div class="col-md-12">
+        <h1>The Hellmouth Cup has been retired after 24 seasons!</h1>
+        <h3>Golly lives on: check out the Pseudo Cup and the Toroidal Cup</h3>
+        <h3>Mon, Tue, Wed: <a href="https://pseudo.golly.life">The Pseudo Cup @ pseudo.golly.life</a></h3>
+        <h3>Thurs, Fri, Sat, Sun: <a href="https://toroidal.golly.life">The Toroidal Cup @ toroidal.golly.life</a></h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-lg-center flipdown-clock">
+      <div id="flipdown" class="flipdown"></div>
+    </div>
+
+    <div class="row text-center landing-header">
+      <div class="col-md-12">
+        <p>The last season is over. While you're deciding what to do next, here is a Game of Life simulator. Click to turn cells on and off!</p>
+      </div>
+    </div>
+
+    <div class="minilife" id="minilife-player">
+    </div>
 
 </div>
 
@@ -232,6 +237,9 @@ var mapsApiUrl = 'https://maps.golly456.life';
 <script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/jquery-svg.js"></script>
+  <script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/json-sans-eval.js"></script>
+  <script type="text/javascript" src="https://hellmouth.integration.golly456.life/theme/js/minilife_core.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 
 <footer id="contentinfo" class="body">
     <div class="text-center">
